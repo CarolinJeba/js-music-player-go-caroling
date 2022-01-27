@@ -6,4 +6,4 @@ Vanilla Javascript project to build a Music Player
       * Switch songs to Prevous and Next
       * Progress bar to track the song progress
 
-* Listen to your all time favorite Christian tracks! Let's go Caroling!
+* Listen to your all time favorite Christian tracks! Let's go Caroling! https://unruffled-hodgkin-f58d84.netlify.app/
