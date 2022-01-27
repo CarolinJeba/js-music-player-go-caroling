@@ -42,7 +42,7 @@ body {
 }
 
 
-/* to add the centre dot on image */
+/* to add the centre circle on image */
 .img-container::after {
     content: '';
     background-color: #fff;

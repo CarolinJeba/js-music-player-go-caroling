@@ -28,12 +28,24 @@ function loadSong(song) {
   cover.src = `images/${song}.jpg`;
 }
 
+// Event listeners - play, prev and next, progress bar and ended
+playBtn.addEventListener("click", () => {
+  const isPlaying = musicContainer.classList.contains("play");
+  isPlaying ? pauseSong() : playSong();
+});
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
+
+audio.addEventListener("timeupdate", updateProgress);
+progressContainer.addEventListener("click", setProgress);
+audio.addEventListener("ended", nextSong);
+
 function playSong() {
   musicContainer.classList.add("play");
   playBtn.querySelector("i.fas").classList.remove("fa-play");
   playBtn.querySelector("i.fas").classList.add("fa-pause");
 
-  audio.play();
+  audio.play(); // inbuilt function of HTML audio API
 }
 
 function pauseSong() {
@@ -41,7 +53,7 @@ function pauseSong() {
   playBtn.querySelector("i.fas").classList.add("fa-play");
   playBtn.querySelector("i.fas").classList.remove("fa-pause");
 
-  audio.pause();
+  audio.pause(); // inbuilt function of HTML audio API
 }
 
 function prevSong() {
@@ -76,17 +88,3 @@ function setProgress(e) {
   const duration = audio.duration;
   audio.currentTime = (clickX / width) * duration;
 }
-
-// Event listeners
-playBtn.addEventListener("click", () => {
-  const isPlaying = musicContainer.classList.contains("play");
-  isPlaying ? pauseSong() : playSong();
-});
-
-// Change Song events
-prevBtn.addEventListener("click", prevSong);
-nextBtn.addEventListener("click", nextSong);
-
-audio.addEventListener("timeupdate", updateProgress);
-progressContainer.addEventListener("click", setProgress);
-audio.addEventListener("ended", nextSong);
